@@ -21,8 +21,13 @@ class Meal {
     // Initialize stored properties
     init?(name: String, photo: UIImage?, rating: Int){
         
-        // Initialization should fail if there is no name or if the rating is negative.
-        if name.isEmpty || rating < 0 {
+        // the name must not be empty
+        guard !name.isEmpty else{
+            return nil
+        }
+        
+        // レーティングは0から5の間
+        guard rating >= 0 && rating <= 5 else{
             return nil
         }
         
