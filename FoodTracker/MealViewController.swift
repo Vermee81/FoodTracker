@@ -25,6 +25,7 @@ class MealViewController: UIViewController {
         super.viewDidLoad()
         // Handle the text field's user input through delegate callbacks.
         nameTextField.delegate = self
+        updateSaveButtonState()
     }
     
     // MARK: Navigation
@@ -68,8 +69,21 @@ extension MealViewController: UITextFieldDelegate{
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the save button while editing
+        saveButton.isEnabled = false
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        updateSaveButtonState()
+        navigationItem.title = textField.text
+    }
+    
+    // MARK: Private methods
+    private func updateSaveButtonState(){
+        // Disable the save button if the text field is empty.
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
     }
     
 }
