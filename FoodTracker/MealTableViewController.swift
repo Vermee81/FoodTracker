@@ -172,11 +172,12 @@ class MealTableViewController: UITableViewController {
     }
     
     private func saveMeals(){
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
-        if isSuccessfulSave{
+        do {
+            let mealData = try NSKeyedArchiver.archivedData(withRootObject: meals, requiringSecureCoding: true)
+            try mealData.write(to: Meal.ArchiveURL)
             os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
-        }else{
-            os_log("Failed to save meals. ", log: OSLog.default, type: .error)
+        }catch{
+            os_log("Failed to save meals. ", log:OSLog.default, type: .error)
         }
     }
     

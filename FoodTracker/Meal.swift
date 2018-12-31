@@ -9,10 +9,11 @@
 import UIKit
 import os.log
 
-class Meal:NSObject, NSCoding {
+class Meal:NSObject, NSSecureCoding {
+    static var supportsSecureCoding: Bool {return true}
+    
     
     // MARK: Properties
-    
     var name: String
     var photo: UIImage?
     var rating: Int
