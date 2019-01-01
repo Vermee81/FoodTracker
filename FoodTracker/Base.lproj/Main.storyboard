@@ -26,13 +26,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="BKh-T1-xFx">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="BKh-T1-xFx">
+                                            <rect key="frame" x="0.0" y="-0.5" width="90" height="90"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="90" id="Rzn-7e-2w8"/>
+                                                <constraint firstAttribute="width" constant="90" id="Z3e-1u-wjv"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="623-G0-4Pz">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="623-G0-4Pz">
                                             <rect key="frame" x="98" y="11" width="270" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -42,6 +44,13 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="623-G0-4Pz" firstAttribute="leading" secondItem="BKh-T1-xFx" secondAttribute="trailing" constant="8" id="0zP-Wn-ppy"/>
+                                        <constraint firstAttribute="bottom" secondItem="BKh-T1-xFx" secondAttribute="bottom" id="7vC-LK-8nG"/>
+                                        <constraint firstItem="623-G0-4Pz" firstAttribute="top" secondItem="KjH-nx-nci" secondAttribute="top" constant="11" id="V8G-1T-ZJE"/>
+                                        <constraint firstAttribute="trailing" secondItem="623-G0-4Pz" secondAttribute="trailing" constant="7" id="nB7-tF-iAP"/>
+                                        <constraint firstItem="BKh-T1-xFx" firstAttribute="leading" secondItem="KjH-nx-nci" secondAttribute="leading" id="qHZ-FA-Mqc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="623-G0-4Pz" id="2Rx-Yf-y7m"/>
