@@ -182,7 +182,14 @@ class MealTableViewController: UITableViewController {
     }
     
     private func loadMeals() -> [Meal]?{
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
+        do{
+            let mealData = try Data(contentsOf: Meal.ArchiveURL)
+            return try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(mealData) as? [Meal]
+        }catch{
+            os_log("Failed to read meals.", log:OSLog.default, type: .error)
+            return nil
+        }
+
     }
 
 }
